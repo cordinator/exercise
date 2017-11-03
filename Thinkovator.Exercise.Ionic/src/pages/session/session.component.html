@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Workout Session</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-item>
+      <video #videoPlayer [src]="source">
+        Your browser does not support HTML5 video.
+      </video>
+    </ion-item>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <div id="points-logo">
+        <div class="center circle"></div>
+        <div class="circle-title">
+          {{seconds}}
+        </div>
+        <div class="circle-detail">
+          Keep movin!
+        </div>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div id="points-logo">
+        <div class="center circle"></div>
+        <div class="circle-title">
+          {{sessionMinutes}}:{{sessionSeconds | number:'2.0'}}
+        </div>
+        <div class="circle-detail">
+          Minutes Left
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row padding-left padding-right center>
+    <ion-col>
+      <button ion-button outline  class="center" (click)="previous()">
+        <ion-icon name="rewind"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button outline  class="center" (click)="togglePlayPause()">
+        <ion-icon name="{{playPause}}"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button outline class="center" (click)="next()">
+        <ion-icon name="fastforward">
+        </ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-content>

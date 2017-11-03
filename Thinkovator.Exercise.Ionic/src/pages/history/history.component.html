@@ -1,0 +1,42 @@
+﻿<ion-header>
+  <ion-navbar>
+    <ion-title>History</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="history-content" padding>
+  <ion-row>
+    <ion-col col-3>
+      <div ion-fab tiny mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
+        <ion-icon name="arrow-back"></ion-icon>
+      </div>
+    </ion-col>
+    <ion-col text-center>
+      <p class="font-md">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</p>
+    </ion-col>
+    <ion-col col-3>
+      <div float-right ion-fab tiny mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <div class="calendar-comp">
+        <ng-template #headerTemp>
+          <div class="cal-cell-row">
+            <div class="cal-cell cal-past columnHeader" *ngFor="let label of days_label">
+              {{label}}
+            </div>
+          </div>
+        </ng-template>
+        <mwl-calendar-month-view [headerTemplate]="headerTemp" [viewDate]="viewDate" [events]="events" [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen"
+          (beforeViewRender)="beforeMonthViewRender($event)" (dayClicked)="dayClicked($event.day)">
+        </mwl-calendar-month-view>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-fab right bottom>
+    <button ion-fab (click)="addEvent()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

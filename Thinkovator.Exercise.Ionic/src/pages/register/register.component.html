@@ -1,0 +1,69 @@
+﻿<ion-header>
+  <ion-navbar>
+    <ion-title>Sign Up</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="login-content" padding>
+  <div class="login-box">
+
+    <form [formGroup]="formGroup">
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <tk-message-banner [messages]="messages"></tk-message-banner>
+
+            <ion-item>
+              <ion-label floating>Name</ion-label>
+              <ion-input type="text" formControlName="name"></ion-input>
+            </ion-item>
+            <tk-input-error [formField]="formGroup.controls.name" [submitted]="submitted">
+              Name is required.
+            </tk-input-error>
+
+            <ion-item>
+              <ion-label floating>Email</ion-label>
+              <ion-input type="text" formControlName="email"></ion-input>
+            </ion-item>
+            <tk-input-error [formField]="formGroup.controls.email" [submitted]="submitted">
+              Email is required.
+            </tk-input-error>
+
+            <ion-item>
+              <ion-label floating>Password</ion-label>
+              <ion-input type="password" formControlName="password"></ion-input>
+            </ion-item>
+            <tk-input-error [formField]="formGroup.controls.password" [submitted]="submitted">
+              Password is required.
+            </tk-input-error>
+
+            <ion-item>
+              <ion-label floating>Confirm Password</ion-label>
+              <ion-input type="password" formControlName="confirmPassword"></ion-input>
+            </ion-item>
+            <tk-input-error [formField]="formGroup.controls.confirmPassword" [submitted]="submitted">
+              Confirm Password is required.
+            </tk-input-error>
+
+            <ion-item>
+              <ion-label floating>Amin Pin</ion-label>
+              <ion-input type="text" formControlName="pin"></ion-input>
+            </ion-item>
+            <tk-input-error [formField]="formGroup.controls.pin" [submitted]="submitted">
+              Admin Pin is required.
+            </tk-input-error>
+
+            <ion-item style="display:none"></ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row padding-left padding-right>
+        <ion-col>
+          <button ion-button class="submit-btn" full type="submit" (click)="register()">Create</button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+  </div>
+</ion-content>

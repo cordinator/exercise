@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Workout Entry</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="settings-content" padding>
+  <div class="settings-box">
+
+    <form [formGroup]="formGroup">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+
+            <tk-message-banner [messages]="messages"></tk-message-banner>
+
+            <ion-item class="remove-left-padding" *ngIf="workouts">
+              <ion-label floating>Workout Type</ion-label>
+              <ion-select formControlName="workoutId">
+                <ion-option *ngFor="let workout of workouts;" selected="inputs.workoutId === workout.id" [value]="workout.id">{{workout.name}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <tk-input-error [formField]="formGroup.controls.workoutId" [submitted]="submitted">
+              Type is required.
+            </tk-input-error>
+
+            <ion-item>
+              <ion-label floating>Date</ion-label>
+              <ion-input type="date" formControlName="workoutDate" useValueAsDate></ion-input>
+            </ion-item>
+            <tk-input-error [formField]="formGroup.controls.workoutDate" [submitted]="submitted">
+              Date is required.
+            </tk-input-error>
+
+            <ion-item>
+              <ion-label floating>Minutes</ion-label>
+              <ion-input type="text" formControlName="lengthInSeconds"></ion-input>
+            </ion-item>
+            <tk-input-error [formField]="formGroup.controls.lengthInSeconds" [submitted]="submitted">
+              Minutes is required.
+            </tk-input-error>
+
+            <ion-item *ngIf="editMode">
+              <ion-label floating>Calories Burned</ion-label>
+              <ion-input type="text" formControlName="caloriesBurned" disabled></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="editMode">
+              <ion-label floating>Points Earned</ion-label>
+              <ion-input type="text" formControlName="pointsEarned" disabled></ion-input>
+            </ion-item>
+
+            <ion-item style="display:none"></ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row padding-left padding-right>
+        <ion-col>
+          <button *ngIf="!editMode" ion-button class="submit-btn" full type="submit" (click)="save()">Save</button>
+          <button *ngIf="editMode" ion-button class="submit-btn" full type="submit" (click)="update()">Update</button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+  </div>
+</ion-content>

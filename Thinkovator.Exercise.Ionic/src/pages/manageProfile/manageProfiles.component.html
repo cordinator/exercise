@@ -1,0 +1,25 @@
+﻿<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Manage Profiles</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card *ngFor="let item of items; let i = index">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="http://placehold.it/65x65" />
+      </ion-avatar>
+      <h2>{{item.name}}</h2>
+    </ion-item>
+    <ion-item>
+      <button ion-button clear item-end (click)="delete(i, item)">DELETE</button>
+      <button ion-button clear item-end (click)="update(item)">UPDATE</button>
+    </ion-item>
+  </ion-card>
+  <ion-fab right bottom>
+    <button ion-fab (click)="create()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

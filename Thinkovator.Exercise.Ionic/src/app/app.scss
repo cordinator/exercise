@@ -1,0 +1,77 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+  $green: #32db64;
+  $red: #f53d3d;
+  $blue: #488aff;
+  $darkBlue: #1565C0;
+  $white: #fff;
+
+  body {
+    background: #f9f9f9;
+  }
+
+  @media (min-width: 620px) {
+    ion-app {
+      width: 360px !important;
+      height: 640px !important;
+      margin-left: 40%;
+    }
+  }
+
+  .success-text {
+    color: $green;
+  }
+
+  .error-text {
+    color: $red;
+  }
+
+  .remove-left-padding{
+      padding-left: 0px;
+  }
+
+  ion-header {
+    box-shadow: 0px 0px 3px 1px $blue !important;
+  }
+
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  .circle {
+    border-radius:50%;
+    background: $blue;
+  }
+
+  #menu-title,
+  .toolbar-background {
+    background: $darkBlue;
+  }
+
+  #menu-title,
+  .toolbar-title,
+  .bar-button-menutoggle,
+  .back-button.show-back-button {
+    color: $white;
+  }
+
+  #menu-title > .item-inner {
+    border-bottom: 0;
+  }

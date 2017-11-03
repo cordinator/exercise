@@ -1,0 +1,36 @@
+page-workout-detail {
+  #points-logo {
+    position: relative;
+    text-align: center;
+  }
+  
+  .circle-title {
+    position: absolute;
+    top: 25%;
+    font-size: 3em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .circle-detail {
+    position: absolute;
+    top: 60%;
+    font-size: 1.2em;
+    width: 100%;
+    color: #fff;
+  }
+  
+  .circle {
+    width:9em;
+    height:9em;
+  }
+
+  .bp-0 {
+    padding-bottom: 0 !important;
+  }
+
+  .tp-0 {
+    padding-top: 0 !important;
+  }
+}

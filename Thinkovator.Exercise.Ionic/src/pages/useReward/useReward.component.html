@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Rewards</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item text-center *ngIf="!itemsExist">
+    <p class="lg-font">No rewards to use.</p>
+    <button ion-button outline medium (click)="buyRewards()">
+      Buy Rewards
+    </button>
+  </ion-item>
+  <ion-card *ngFor="let item of items">
+    <ion-item>
+      <h2>{{item.name}}</h2>
+      <p>
+        {{item.description}}
+      </p>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button clear item-end (click)="use(item)">Use</button>
+    </ion-item>
+  </ion-card>
+</ion-content>

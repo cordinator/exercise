@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>Great Job!</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="workoutFinished" text-center>
+    <ion-row center>
+      <ion-col>
+        <ion-icon name="flame" class="lg-icon">
+          <span class="cal-title">{{workoutFinished.caloriesBurned}}</span>
+          <span class="cal-detail">Calories Burned</span>
+        </ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="trophy" class="lg-icon">
+          <span class="points-title">{{workoutFinished.pointsEarned}}</span>
+          <span class="points-detail">Points Earned</span>
+        </ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p class="lg-font">Workout Length: {{workoutLength | i18nPlural: messageMapping}}</p>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ion-row>
+    <button ion-button full (click)="home()">Home</button>
+  </ion-row>
+</ion-content>

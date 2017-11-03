@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile Image</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row padding-left padding-right>
+    <ion-col>
+      <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
+      <h3 [hidden]="lastImage !== null">Please Select Image!</h3>
+    </ion-col>
+  </ion-row>
+
+  <ion-row padding-left padding-right>
+    <ion-col>
+      <button ion-button class="submit-btn" full type="submit" (click)="presentActionSheet()">Select Image</button>
+      <button ion-button class="submit-btn" full type="submit" (click)="updateSettings()" [disabled]="lastImage === null">Upload</button>
+    </ion-col>
+  </ion-row>
+</ion-content>

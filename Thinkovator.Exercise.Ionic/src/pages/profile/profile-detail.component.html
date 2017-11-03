@@ -1,0 +1,110 @@
+﻿<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="selectedItem" class="blue-background">
+    <ion-row padding-top>
+      <ion-col>
+        <img class="center circle" src="http://placehold.it/130x130" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <h2 class="mt-0">{{selectedItem.name}}</h2>
+        <h3>{{selectedItem.points | i18nPlural: ptsMapping}}</h3>
+        <!-- Last Exercised: {{selectedItem.lastExercised | date: 'yyyy-MM-dd'}} -->
+      </ion-col>
+    </ion-row>
+    <ion-row text-center class="padding-bottom">
+      <ion-col>
+        <div class="div-button border-right" (click)="workout()">
+          Go Workout
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="div-button border-right" (click)="buyRewards()">
+          Buy Rewards
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="div-button" (click)="useRewards()">
+          Use Rewards
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div style="margin-top: -50px">
+    <ion-card *ngIf="!historyExists">
+      <ion-card-header>
+        No History Available
+      </ion-card-header>
+      <ion-card-content>
+        Click Go Workout to start earning points!
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngFor="let workout of workoutHistory">
+      <ion-card-header>
+        <ion-row>
+          <ion-col>
+            {{workout.workoutName}}
+          </ion-col>
+          <ion-col text-right text-bottom class="header-date">
+            {{workout.workoutDate | date}}
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col>
+            <ion-row>
+              <ion-col text-center class="pb-0">
+                <span>{{workout.caloriesBurned}}</span>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col text-center class="pt-0">
+                <span>{{workout.caloriesBurned | i18nPlural: caloriesMapping}}</span>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col>
+            <ion-row>
+              <ion-col text-center class="pb-0">
+                <span>{{workout.pointsEarned}}</span>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col text-center class="pt-0">
+                <span>{{workout.pointsEarned | i18nPlural: pointsMapping}}</span>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col>
+            <ion-row>
+              <ion-col text-center class="pb-0">
+                <span>{{workout.lengthInSeconds / 60}}</span>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col text-center class="pt-0">
+                <span>{{workout.lengthInSeconds / 60 | i18nPlural: minutesMapping}}</span>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-item class="view-history">
+    <button ion-button item-end clear *ngIf="historyExists" (click)="history()">View All</button>
+    <button ion-button item-end clear *ngIf="!historyExists" (click)="history()">Add Previous Workout</button>
+  </ion-item>
+</ion-content>

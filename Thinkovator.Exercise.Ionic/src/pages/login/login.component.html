@@ -1,0 +1,45 @@
+﻿<ion-header>
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="login-content" padding>
+  <form [formGroup]="formGroup">
+    <ion-row>
+      <ion-col>
+        <ion-list>
+
+          <tk-message-banner [messages]="messages"></tk-message-banner>
+
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="text" formControlName="email"></ion-input>
+          </ion-item>
+          <tk-input-error [formField]="formGroup.controls.email" [submitted]="submitted">
+            Email is required.
+          </tk-input-error>
+
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+          <tk-input-error [formField]="formGroup.controls.password" [submitted]="submitted">
+            Password is required.
+          </tk-input-error>
+
+          <ion-item style="display:none"></ion-item>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row padding-left padding-right>
+      <ion-col>
+        <button ion-button class="submit-btn" full type="submit" (click)="login()">Log In</button>
+        <button ion-button class="register-btn" block clear (click)="forgotPassword()">Forgot Password?</button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+</ion-content>

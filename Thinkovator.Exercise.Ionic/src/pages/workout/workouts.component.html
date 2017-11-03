@@ -1,0 +1,25 @@
+﻿<ion-header>
+  <ion-navbar>
+    <ion-title>Workouts</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page exercise-content">
+  <ion-card (click)="workoutClicked(1, 'Strength')">
+    <img src="assets/images/strength.png" height="140px" class="gray-scale" />
+    <div class="card-title">Strength</div>
+  </ion-card>
+  <ion-card (click)="workoutClicked(2, 'Cardio')">
+    <img src="assets/images/cardio.png" height="140px" class="gray-scale" />
+    <div class="card-title">Cardio</div>
+  </ion-card>
+  <ion-card (click)="workoutClicked(3, 'Stretching')">
+    <img src="assets/images/stretch.png" height="140px" class="gray-scale" />
+    <div class="card-title">Stretching</div>
+  </ion-card>
+  <ion-row>
+    <ion-col>
+      <button ion-button clear full (click)="customWorkout()">Custom Workout</button>
+    </ion-col>
+  </ion-row>
+</ion-content>

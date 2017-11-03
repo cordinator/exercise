@@ -1,0 +1,9 @@
+﻿page-manageProfiles {
+  $imageSize: 4em;
+  
+  ion-avatar ion-img, 
+  ion-avatar img {
+    width: $imageSize !important;
+    height: $imageSize !important;
+  }
+}

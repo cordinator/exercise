@@ -1,0 +1,73 @@
+﻿page-history {
+  .calendar-comp {
+    .columnHeader {
+      text-align: center;
+      font-weight: bold;
+    }
+    .cal-today {
+      .cal-day-number {
+        font-size: 1.5em !important;
+      }
+    }
+    .cal-day-cell {
+      min-height: 60px;
+    }
+    .cal-cell-top {
+      min-height: 30px;
+    }
+    .cal-day-number {
+      font-size: 1em;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      margin-right: 5px;
+    }
+    .cal-day-badge {
+      display: none;
+    }
+
+    .cal-day-selected,
+    .cal-day-selected:hover {
+      background-color: darkgray !important;
+    }
+  }
+
+  .cal-open-day-events {
+    background-color: #e1e1e1 !important;
+    box-shadow: none !important;
+  }
+
+  .cal-event-title {
+    color: black !important;
+  }
+
+  .cal-event-actions {
+    float: right;
+  }
+  mwl-calendar-open-day-events > div > div {
+    font-size: 16px;
+    height: 35px;
+
+    a{
+      text-decoration: none;
+    }
+  }
+  
+  mwl-calendar-event-actions > span > a {
+    text-decoration: none;
+    
+    span {
+      margin: 10px;
+    }
+  }
+
+  .font-md {
+    font-size: 16px;
+  }
+
+  .fab[tiny] {
+    margin: 8px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+}

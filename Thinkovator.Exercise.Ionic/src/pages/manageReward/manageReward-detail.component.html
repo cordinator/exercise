@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="!editMode">Create Reward</ion-title>
+    <ion-title *ngIf="editMode">Update Reward</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="settings-content" padding>
+  <div class="settings-box">
+
+    <form [formGroup]="formGroup">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+
+            <tk-message-banner [messages]="messages"></tk-message-banner>
+
+            <ion-item>
+              <ion-label floating>Name</ion-label>
+              <ion-input type="text" formControlName="name"></ion-input>
+            </ion-item>
+            <tk-input-error [formField]="formGroup.controls.name" [submitted]="submitted">
+              Name is required.
+            </tk-input-error>
+
+            <ion-item>
+              <ion-label floating>Points</ion-label>
+              <ion-input type="text" formControlName="points"></ion-input>
+            </ion-item>
+            <tk-input-error [formField]="formGroup.controls.points" [submitted]="submitted">
+              Points are required.
+            </tk-input-error>
+
+            <ion-item>
+              <ion-label floating>Description</ion-label>
+              <ion-input type="text" formControlName="description"></ion-input>
+            </ion-item>
+
+            <ion-item style="display:none"></ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row padding-left padding-right>
+        <ion-col>
+          <button *ngIf="!editMode" ion-button class="submit-btn" full type="submit" (click)="create()">Create</button>
+          <button *ngIf="editMode" ion-button class="submit-btn" full type="submit" (click)="update()">Update</button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+  </div>
+</ion-content>

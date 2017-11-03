@@ -1,0 +1,59 @@
+﻿<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="settings-content" padding>
+  <form [formGroup]="formGroup">
+    <ion-row>
+      <ion-col>
+        <img class="center circle" src="http://placehold.it/130x130" />
+        <button ion-button clear full type="submit" (click)="uploadProfilePicture()">Upload Picture</button>
+        <ion-list inset>
+
+          <tk-message-banner [messages]="messages"></tk-message-banner>
+
+          <ion-item>
+            <ion-label floating>Name</ion-label>
+            <ion-input type="text" formControlName="name"></ion-input>
+          </ion-item>
+          <tk-input-error [formField]="formGroup.controls.name" [submitted]="submitted">
+            Name is required.
+          </tk-input-error>
+
+          <ion-item>
+            <ion-label floating>Age</ion-label>
+            <ion-input type="text" formControlName="age"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Weight</ion-label>
+            <ion-input type="text" formControlName="weight"></ion-input>
+          </ion-item>
+
+          <ion-item class="remove-left-padding">
+            <ion-label floating>Units</ion-label>
+            <ion-select formControlName="units">
+              <ion-option selected="inputs.units === 1" value="1">lbs</ion-option>
+              <ion-option selected="inputs.units === 2" value="2">kgs</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item style="display:none"></ion-item>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row padding-left padding-right>
+      <ion-col>
+        <button ion-button full (click)="updateSettings()">Save</button>
+        <button ion-button full *ngIf="isAdmin">Rate This App</button>
+        <button ion-button full *ngIf="isAdmin">Purchase This App</button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

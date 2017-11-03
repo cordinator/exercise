@@ -1,0 +1,25 @@
+﻿<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Manage Rewards</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card *ngFor="let item of items; let i = index">
+    <ion-item>
+      <h2>{{item.name}}: {{item.points | i18nPlural: pointsMapping}}</h2>
+      <p>
+        {{item.description}}
+      </p>
+    </ion-item>
+    <ion-item>
+      <button ion-button clear item-end (click)="delete(i, item)">DELETE</button>
+      <button ion-button clear item-end (click)="update(item)">UPDATE</button>
+    </ion-item>
+  </ion-card>
+  <ion-fab right bottom>
+    <button ion-fab (click)="create()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

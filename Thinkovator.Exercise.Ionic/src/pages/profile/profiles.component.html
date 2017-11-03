@@ -1,0 +1,18 @@
+﻿<ion-header>
+  <ion-navbar>
+    <ion-title>Profiles</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <tk-message-banner [messages]="messages"></tk-message-banner>
+  
+  <ion-card *ngFor="let item of items" (click)="profileSelected($event, item)">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="http://placehold.it/80x80" />
+      </ion-avatar>
+      <h2>{{item.name}}: {{item.points | i18nPlural: pointsMapping }}</h2>
+      <p>Last Excerised: {{item.lastExercised | date: 'yyyy-MM-dd'}}</p>
+    </ion-item>
+  </ion-card>
+</ion-content>

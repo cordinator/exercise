@@ -1,0 +1,39 @@
+﻿<ion-header>
+  <ion-navbar>
+    <ion-title>Buy Rewards</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page reward-content">
+  <ion-row>
+    <tk-message-banner [messages]="messages"></tk-message-banner>
+  </ion-row>
+  <ion-row>
+    <ion-col center>
+      <div id="points-logo">
+        <div class="center circle"></div>
+        <div class="card-title">
+          {{points}} pts
+        </div>
+        <div class="card-detail">
+          Available
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-item text-center *ngIf="!itemsExist">
+    <p class="lg-font">No rewards to buy.</p>
+  </ion-item>
+  <ion-card *ngFor="let item of items">
+    <ion-item>
+      <h2>{{item.name}}: {{item.points}} pts</h2>
+      <p>
+        {{item.description}}
+      </p>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button clear item-end (click)="buy(item)">BUY</button>
+    </ion-item>
+  </ion-card>
+</ion-content>

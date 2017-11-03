@@ -1,0 +1,22 @@
+﻿page-welcome {
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  ion-content {
+    background: url(/www/assets/images/welcome.png);
+    background-repeat: no-repeat;
+    height: 100%;
+    background-size: cover;
+  }
+
+  .mt-50 {
+    margin-top: 50px;
+  }
+
+  .mt-300 {
+    margin-top: 300px;
+  }
+}
